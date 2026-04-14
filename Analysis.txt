@@ -1,0 +1,22 @@
+1. Fragmentation Analysis: In the basic example, what is the external fragmentation percentage? Explain why free memory becomes fragmented.
+	In the basic example, the external fragmentation percentage is 27.08%. Free memory becomes fragmented because the processes are not all the same size so when a larger block is freed and a smaller process is allocated into that block, the leftover memory is too small to fit anything contiguously.
+
+2. First-Fit Efficiency: Why does P4 use the block left by P1 even though it's larger than needed? What happens to the unused portion?
+	P4 uses the block left by P1 even though it's larger than needed because First-Fit allocates to the first block large enough to fit P4 regardless of size. The remaining memory becomes a new block of size corresponding to the leftover memory.
+
+3. Allocation Patterns: Compare workload1.txt (many small processes) with workload2.txt (few large processes). Which creates more fragmentation? Why?
+	workload2.txt creates more fragmantation than workload1.txt because it has larger processes, meaning that the fragments that are created are much larger to fill since the processes need more space while workload1.txt has smaller processes which are more likely to fill the fragments.
+
+4. Failed Allocations: Create a scenario where an allocation fails even though the total free memory is larger than the request. Why does this happen?
+100
+REQUEST Q 40
+REQUEST R 10
+REQUEST S 40
+REQUEST T 10
+RELEASE R
+RELEASE T
+REQUEST U 18
+	In this scenario, U fails to be allocated even though it needs 18 KB, which is less than the 20 KB of total free memory because the memory is not in one contiguous block. It is instead split into two 10 KB blocks and U is unable to fit into either of them individually.
+
+5. Algorithm Comparison: How might Best-Fit allocation handle the basic example differently than First-Fit? Would it reduce fragmentation?
+	Best-Fit allocation would handle the basic example identically to First-Fit because in all instances, the first available block also just so happens to be the smallest available block. As a result, it would not reduce fragmentation. For most other examples, Best-Fit would reduce fragmentation.
