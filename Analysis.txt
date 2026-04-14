@@ -16,7 +16,7 @@ REQUEST T 10
 RELEASE R
 RELEASE T
 REQUEST U 18
-	In this scenario, U fails to be allocated even though it needs 18 KB, which is less than the 20 KB of total free memory because the memory is not in one contiguous block. It is instead split into two 10 KB blocks and U is unable to fit into either of them individually.
+	In this scenario, U fails to be allocated even though it needs 18 KB, which is less than the 20 KB of total free memory because the memory is not in one contiguous block. The free memory is instead split into two 10 KB blocks and U is unable to fit into either of them individually.
 
 5. Algorithm Comparison: How might Best-Fit allocation handle the basic example differently than First-Fit? Would it reduce fragmentation?
 	Best-Fit allocation would handle the basic example identically to First-Fit because in all instances, the first available block also just so happens to be the smallest available block. As a result, it would not reduce fragmentation. For most other examples, Best-Fit would reduce fragmentation.
